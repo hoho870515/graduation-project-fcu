@@ -1,0 +1,56 @@
+﻿<html>
+<div style="text-align:center;">
+<head>
+　<title>查詢網頁</title> 
+</head>
+
+<body>
+
+<form method="post" enctype="multipart/form-data" action="upload.php">
+  <input type="file" name="my_file">
+  <input type="submit" value="Upload">
+</form>
+
+
+<video id="movie" preload controls loop poster="poster.png" width="640" height="360">
+  <source src="upload/JICIN.mp4" type="video/mp4" />
+  <source src="upload/JICIN.ogv" type="video/ogg" />
+  <source src="upload/JICIN.webm" type="video/web" />
+</video>
+
+
+
+<script language="javascript">
+function Check(){
+　var v=document.getElementById("fname").value;
+   if(v=="JICIN"){
+   
+   window.open("file:///D:/web/%E7%B6%B2%E9%A0%81%E7%AF%84%E4%BE%8B/JICIN.html");
+   window.open('', '_self', ''); window.close();
+   
+   }
+   else if(v=="YUFANG"){
+   window.open("file:///D:/web/%E7%B6%B2%E9%A0%81%E7%AF%84%E4%BE%8B/YUFANG.HTML");
+    window.open('', '_self', ''); window.close();
+   }
+}
+</script>
+
+
+
+<br>
+ 請輸入你想查的人物 
+ <input value="季芹" type="text" id="fname" />
+<input value="查詢" onclick="Check()";" type="button">
+<br>
+
+<button type="button">開始訓練</button>
+<br>
+ 
+<div class="img-group">
+ <img src="季芹-videos-images OK\6-Scene-202-1430_8805.jpg"  title="季芹" width="300" height="225">23:50
+ <img src="季芹-videos-images OK\6-Scene-413-3180_113.jpg"   title="季芹" width="300" height="225">53:00
+ <img src="季芹-videos-images OK\6-Scene-417-3196_6465.jpg"  title="季芹" width="300" height="225">53:16
+</div>
+</body>
+</html>
