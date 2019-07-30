@@ -1,0 +1,116 @@
+﻿<html>
+<div style="text-align:center;">
+<head>
+  <meta charset="utf-8"> 
+    <script type="text/jscript">     
+	  function key_image() 
+	  {     
+	   shell = new ActiveXObject ("WScript.Shell");
+       shell.Run ('cmd /K "C:/Users/user/Anaconda3/envs/tensorflow/FaceNet/key_image.bat"');
+	   }
+	   
+      function train()
+      {
+	   shell = new ActiveXObject ("WScript.Shell");
+       shell.Run ('cmd /K "C:/Users/user/Anaconda3/envs/tensorflow/FaceNet/train"');
+	   }	
+	   
+	
+ 
+
+
+	</script>  
+	
+	
+	
+　<title>查詢網頁</title> 
+</head>
+
+<body>
+
+<form method="post" enctype="multipart/form-data" action="upload.php">
+  <input type="file" name="my_file" onclick="reloadPage()">
+  <input type="submit" value="upload">
+</form>
+
+
+<video id="movie" preload controls loop poster="poster.png" width="640" height="360">
+  <source src="upload/6.mp4" type="video/mp4" />
+  <source src="upload/6.ogv" type="video/ogg" />
+  <source src="upload/6.webm" type="video/web" />
+</video>
+
+
+<br>
+<input type="button" value="擷取關鍵影格" onclick="key_image()" />
+<br>
+<input type="button" value="開始訓練" onclick="train()" />
+<br>
+ 
+<!--
+<div class="img-group">
+ <img src="季芹-videos-images OK\6-Scene-202-1430_8805.jpg"  title="季芹" width="300" height="225">23:50
+ <img src="季芹-videos-images OK\6-Scene-413-3180_113.jpg"   title="季芹" width="300" height="225">53:00
+ <img src="季芹-videos-images OK\6-Scene-417-3196_6465.jpg"  title="季芹" width="300" height="225">53:16
+</div>
+-->
+
+
+
+<br>
+<form>
+<input type="file" id="selectFiles" onchange="dealSelectFiles()" webkitdirectory />
+<canvas id="myCanvas" width=1800 height=10000></canvas>
+</form>
+
+ 
+<script type="text/javascript">
+var times=0;
+var imgPosX = 0;
+var imgPosY = 0;
+var imgWidthX = 470;
+var imgWidthY = 330;
+function dealSelectFiles(){
+/// get select files.
+var selectFiles = document.getElementById("selectFiles").files;
+ 
+for(var file of selectFiles){
+
+
+
+/// read file content.
+var reader = new FileReader();
+reader.readAsDataURL(file);
+reader.onloadend = function(){
+/// deal data.
+var img = new Image();
+/// after loader, result storage the file content result.
+img.src = this.result;
+img.onload = function(){
+var myCanvas = document.getElementById("myCanvas");
+var cxt = myCanvas.getContext('2d');
+if(times%4 == 0 && times != 0){
+imgPosY += imgWidthY;
+imgPosX = 0;
+}
+cxt.drawImage(img, imgPosX, imgPosY,400,230);
+
+times = times + 1;
+
+imgPosX += imgWidthX;
+
+
+}
+
+
+}
+}
+}
+</script>
+ 
+
+
+</body>
+
+
+</html>
